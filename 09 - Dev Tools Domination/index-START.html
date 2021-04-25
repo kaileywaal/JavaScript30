@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+      // Regular
+      console.log("hello");
 
-    // Regular
+      // Interpolated
+      console.log("Hello I am an %s string!", "interpolated");
 
-    // Interpolated
+      // Styled
+      console.log(
+        "%c I am some great text",
+        "font-size: 50px; background: yellow"
+      );
 
-    // Styled
+      // warning!
+      console.warn("oh no");
 
-    // warning!
+      // Error :|
+      console.error("Crap!");
 
-    // Error :|
+      // Info
+      console.info("Crocodiles eat 3-4 people per year");
 
-    // Info
+      // Testing
+      console.assert(1 === 1, "That is wrong!");
 
-    // Testing
+      // clearing
+      console.clear();
 
-    // clearing
+      // Viewing DOM Elements
+      const p = document.querySelector("p");
+      console.dir(p);
 
-    // Viewing DOM Elements
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
 
-    // Grouping together
+      // counting
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
+      console.count("Kailey");
 
-    // counting
+      // timing
+      console.time("fetching data");
+      //code to get data
+      console.timeEnd("fetching data");
+      // console.log(data); tests how long it takes to get data
 
-    // timing
-
-  </script>
-</body>
+      //table
+      console.table(dogs);
+    </script>
+  </body>
 </html>
